@@ -1,7 +1,9 @@
+
 ## note
 connect http:8123 , tcp:9000
 
 ## command
+docker compose up -d\
 clickhouse-client \
 show databases; \
 create database demo_db;
@@ -60,7 +62,7 @@ CREATE TABLE  iot_db.datamicdemo1_raw ON CLUSTER replicated_cluster (\
 )\
 ENGINE = Kafka\
 SETTINGS\
-    kafka_broker_list = '192.168.0.191:29092,192.168.0.191:39092,192.168.0.191:49092',\
+    kafka_broker_list = 'localhost:29092,localhost:39092,localhost:49092',\
     kafka_topic_list = 'k_datamicdemo1',\
     kafka_group_name = 'ck_group1',\
     kafka_format = 'JSONEachRow',\
